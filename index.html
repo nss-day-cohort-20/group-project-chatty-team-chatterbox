@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chatty: the place to chat.</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+	<body>
+		<div id="pageWrapper">
+
+			<nav id="header">
+				<div id="imageWrapper"></div>
+				<input type="text" name="messageInput" id="messageInput">
+				<button id="clearButton">Clear Chat</button>
+			</nav> <!-- id: header -->
+
+			<div id="checkboxDiv">
+				<input type="checkbox"  id="darkTheme" name="darkTheme">
+				<label for="darkTheme">Dark Theme</label>
+
+				<input type="checkbox"  id="largeText" name="largeText">
+				<label for="largeText">Large Text</label>
+			</div> <!--  id: checkboxDiv -->
+
+			<div id="chatWrapper"></div>
+
+		</div> <!-- id: pageWrapper -->
+		<script src="javascript/dom.js"></script>
+		<script src="javascript/data.js"></script>
+		<script src="javascript/styling.js"></script>
+		<script src="javascript/main.js"></script>
+	</body>
+</html>
