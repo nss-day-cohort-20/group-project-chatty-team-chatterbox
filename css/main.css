@@ -30,17 +30,18 @@ div button {
 }
 
 #checkboxDiv {
-	height: 7vh;
+	height: 5vh;
 }
 
 #pageWrapper {
-	height: 99vh;
+	height: 98vh;
 	white-space: nowrap;
+	margin: 0;
 }
 
 #chatWrapper {
 	overflow: scroll;
-	height: 79vh;
+	height: 75vh;
 }
 
 .largeText {
