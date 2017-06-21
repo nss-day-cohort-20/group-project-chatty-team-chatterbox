@@ -45,6 +45,7 @@ webpage.createContainerDiv = function (userText) {
 	})
 }
 
+
 //TODO - move to main.js
 // webpage.createContainerDiv("hello how are you?");
 // webpage.createContainerDiv("Bonjour! Ca va bein?");
