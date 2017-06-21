@@ -64,7 +64,8 @@ webpage.createContainerDiv = function (userText, counter) {
 	deleteMsgBtn.addEventListener('click', function()
 	{
 		wrapperDiv.removeChild(msgWrapper);
-
+		console.log("counter", counter)
+		Chatty.messages.deleteMessage(counter);
 	})
 }
 
