@@ -23,9 +23,17 @@ webpage.clearFromDOM = function(){
 	}
 }
 
+
+webpage.disabled = function(){
+
+	if (wrapperDiv.hasChildNodes() === false){clearAllBtn.setAttribute("disabled", true);
+	}
+}
 clearAllBtn.addEventListener("click", function(){
 
 	webpage.clearFromDOM();
+	webpage.disabled();
+
 
 })
 
@@ -33,9 +41,12 @@ textbox.addEventListener("keyup", function(event){
 	if (event.key==="Enter"){
 		let messageObject = {};
 		messageObject.message = webpage.getText();
+			clearAllBtn.disabled= false;
 		console.log ("text", messageObject);
 		if (text !== ""){
+
 			Chatty.messages.createMessage(messageObject);
+
 			//take text value, add it to private array of message objects
 			// webpage.createContainerDiv(messageObject.message);
 			// output to DOM with delete button
@@ -64,7 +75,8 @@ webpage.createContainerDiv = function (userText, counter) {
 	deleteMsgBtn.addEventListener('click', function()
 	{
 		wrapperDiv.removeChild(msgWrapper);
-
+		console.log("counter", counter)
+		Chatty.messages.deleteMessage(counter);
 	})
 }
 
