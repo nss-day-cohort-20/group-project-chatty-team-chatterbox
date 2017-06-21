@@ -1,15 +1,53 @@
-.theme
-{
+.theme {
 	background-color: black;
 	color: green;
 }
 
-.largeText
-{
+body {
+	margin: 0;
+}
+
+div {
+	border: 1px solid grey;
+	padding: .25em;
+	margin-bottom: .25em;
+	border-radius: 5px;
+}
+
+div p,
+div button {
+	display: inline-block;
+}
+
+div button {
+	float: right;
+	margin: 1em .5em 1em 0 ;
+}
+
+#header {
+	height: 10vh;
+	overflow: hidden;
+}
+
+#checkboxDiv {
+	height: 7vh;
+}
+
+#pageWrapper {
+	height: 99vh;
+	white-space: nowrap;
+}
+
+#chatWrapper {
+	overflow: scroll;
+	height: 79vh;
+}
+
+.largeText {
 	font-size: 1.3em;
 }
 
-.buttonText
-{
+.buttonText {
 	font-size: 1.3em;
 }
+
