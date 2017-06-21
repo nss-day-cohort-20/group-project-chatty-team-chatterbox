@@ -16,12 +16,13 @@ webpage.getText = function (){
 
 textbox.addEventListener("keyup", function(event){
 	if (event.key==="Enter"){
-		text = webpage.getText();
-		console.log ("text",text);
+		let messageObject = {};
+		messageObject.message = webpage.getText();
+		console.log ("text",messageObject);
 		if (text !== ""){
-			Chatty.messages.createMessage(text);
+			Chatty.messages.createMessage(messageObject);
 			//take text value, add it to private array of message objects
-			webpage.createContainerDiv(text);
+			webpage.createContainerDiv(messageObject.message);
 			// output to DOM with delete button
 
 		}else{alert("Please type your message in the text box and press enter.");}
