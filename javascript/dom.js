@@ -96,6 +96,8 @@ webpage.createContainerDiv = function (userText, counter) {
 			{
 				msgText.classList.toggle('ishidden');
 				msgText.innerHTML = editArea.value;
+				console.log(counter);
+				// Chatty.messages.messagesArray[]
 				msgWrapper.removeChild(editArea);
 			}
 		})
