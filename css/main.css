@@ -13,3 +13,9 @@
 {
 	font-size: 1.3em;
 }
+
+#imageWrapper img {
+	height: 30px;
+	float: left;
+	margin-right: 5px;
+}
