@@ -19,3 +19,7 @@
 	float: left;
 	margin-right: 5px;
 }
+
+.isHidden {
+	display:none;
+}
