@@ -24,19 +24,35 @@ div button {
 	margin: 1em .5em 1em 0 ;
 }
 
+#pageWrapper {
+	height: 98vh;
+	white-space: nowrap;
+	margin: 0;
+}
+
 #header {
 	height: 10vh;
 	overflow: hidden;
 }
 
-#checkboxDiv {
-	height: 5vh;
+#header input {
+	width: 50%;
 }
 
-#pageWrapper {
-	height: 98vh;
-	white-space: nowrap;
-	margin: 0;
+#imageWrapper {
+	overflow: auto;
+	display: inline-block;
+}
+
+#imageWrapper img {
+	height: 30px;
+	float: left;
+	margin-right: 5px;
+	display: inline-block;
+}
+
+#checkboxDiv {
+	height: 5vh;
 }
 
 #chatWrapper {
@@ -52,9 +68,5 @@ div button {
 	font-size: 1.3em;
 }
 
-#imageWrapper img {
-	height: 30px;
-	float: left;
-	margin-right: 5px;
-}
+
 
