@@ -45,8 +45,17 @@
 
 	//deletes message based on the index passed in
 	// TODO: need a better way to tie the delete event hander on the button to the message in the private Array
-	messages.deleteMessage = function(messageIndex) {
-		messagesArray.splice(messageIndex, 1);
+	messages.deleteMessage = function(divId) {
+		for(i=0; i<messagesArray.length;i++)
+			{
+				if(divId === messagesArray[i].id)
+					{
+						var messageIndex = messagesArray.indexOf(messagesArray[i]);
+						// console.log("I was here", messagesArray[i].message);
+						// console.log("I was here", messageIndex);
+					}
+			}
+			messagesArray.splice(messageIndex, 1);
 	}
 
 	window.Chatty = window.Chatty || {};
