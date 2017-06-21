@@ -90,6 +90,7 @@ webpage.createContainerDiv = function (userText, counter) {
 		editArea.setAttribute("type", "text");
 		msgWrapper.insertBefore(editArea, deleteMsgBtn);
 		editArea.value = temp;
+		editArea.focus();
 		editArea.addEventListener('keyup', function()
 		{
 			if(event.keyCode === 13)
