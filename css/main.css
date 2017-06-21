@@ -33,10 +33,15 @@ div button {
 #header {
 	height: 10vh;
 	overflow: hidden;
+	width: 100%;
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center; 
 }
 
 #header input {
 	width: 50%;
+	flex-grow: 1;
 }
 
 #imageWrapper {
@@ -55,9 +60,6 @@ div button {
 	display:none;
 }
 
-	/*display: inline-block;
-}
-*/
 #checkboxDiv {
 	height: 5vh;
 }
@@ -72,7 +74,7 @@ div button {
 }
 
 .buttonText {
-	font-size: 1.3em;
+	font-size: .8em;
 }
 .ishidden
 {
