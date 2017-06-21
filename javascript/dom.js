@@ -35,8 +35,9 @@ textbox.addEventListener("keyup", function(event){
 
 })
 
-webpage.createContainerDiv = function (userText) {
+webpage.createContainerDiv = function (userText, counter) {
 	let msgWrapper = document.createElement('div');
+	msgWrapper.setAttribute('id', counter);
 	wrapperDiv.appendChild(msgWrapper);
 	let msgText = document.createElement('p');
 	msgWrapper.appendChild(msgText);
