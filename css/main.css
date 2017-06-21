@@ -76,7 +76,8 @@ div button {
 .buttonText {
 	font-size: .8em;
 }
-
-
-
+.ishidden
+{
+	display: none;
+}
 
