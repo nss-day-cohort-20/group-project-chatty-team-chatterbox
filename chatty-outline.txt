@@ -1,0 +1,15 @@
+Chatty object outline
+
+I. Chatty
+  A. Messages{} - module to deal with messages at the data level
+    1. messagesArray[] - private array of messages
+    2. counter - number that starts at 1 and is incremented with each added message
+    3. loadStarterJSON() - method that loads 5 initial messages into messagesArray
+    4. createMessage(message) - method that take a method object and adds it to the array
+    5. getAllMessages() - method that returns all messages from the private messagesArray
+    6. deleteMessage(messageIndex) - method that deletes a message from the private messagesArray using the index
+  B. Page{} - module to deal with the page DOM manipulation
+    1. deleteMessageElement() - method that deletes the message based on ???(id or index?)
+    2. addMessageElement(messageObject) - method that adds message to list on page with an object as argument
+    3. clearAllMessages() - removes all messages from page but leaves data intact
+  C. Style{} - module to deal with the checkboxes
