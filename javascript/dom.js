@@ -67,6 +67,28 @@ webpage.createContainerDiv = function (userText, counter) {
 		console.log("counter", counter)
 		Chatty.messages.deleteMessage(counter);
 	})
+	let editMsgBtn = document.createElement('button');
+	editMsgBtn.setAttribute("class", 'editMsgBtn');
+	editMsgBtn.innerHTML = "Edit";
+	msgWrapper.appendChild(editMsgBtn);
+	editMsgBtn.addEventListener('click', function()
+	{
+		let temp = msgText.innerHTML;
+		msgText.classList.toggle('ishidden');
+		let editArea = document.createElement('input');
+		editArea.setAttribute("type", "text");
+		msgWrapper.insertBefore(editArea, deleteMsgBtn);
+		editArea.value = temp;
+		editArea.addEventListener('keyup', function()
+		{
+			if(event.keyCode === 13)
+			{
+				msgText.classList.toggle('ishidden');
+				msgText.innerHTML = editArea.value;
+				msgWrapper.removeChild(editArea);
+			}
+		})
+	})
 }
 
 
