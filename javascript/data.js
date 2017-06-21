@@ -1,5 +1,6 @@
 {
 	let messagesArray = [];
+	let messagesCounter = 1;
 
 	let messages = {}; // or Object.create(null);
 
@@ -32,7 +33,9 @@
 	}
 
 	messages.createMessage = function(message) {
+		message.id = messagesCounter;
 		messagesArray.push(message);
+		messagesCounter++;
 		Chatty.webpage.createContainerDiv(message); //puts the default 5 messages on DOM on load.
 	}
 
