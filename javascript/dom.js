@@ -1,10 +1,30 @@
 var wrapperDiv = document.getElementById('chatWrapper');
 
-function fetchUserInput()
-{
-	let userText = document.getElementById('messageInput').value;
-	return userText;
+//event listener for text box
+let textbox = document.getElementById("messageInput");
+
+let text = null;
+
+function getText(){
+	text = textbox.value;
+	console.log ("text",text);
+	return text;
 }
+
+textbox.addEventListener("keyup", function(event){
+	if (event.key==="Enter"){
+		text = getText();
+		console.log ("text",text);
+		if (text !== ""){
+			//messages.createMessage(text);
+			//take text value, add it to private array of message objects
+			createContainerDiv(text);
+			// output to DOM with delete button
+
+		}else{alert("Please type your message in the text box and press enter.");}
+	}
+
+})
 
 function createContainerDiv(userText)
 {
