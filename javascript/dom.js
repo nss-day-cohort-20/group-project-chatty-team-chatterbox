@@ -1,11 +1,14 @@
-var wrapperDiv = document.getElementById('chatWrapper');
+{
+
+	let webpage = {}
+
 
 //event listener for text box
 let textbox = document.getElementById("messageInput");
-
+let wrapperDiv = document.getElementById("chatWrapper");
 let text = null;
 
-function getText(){
+webpage.getText = function (){
 	text = textbox.value;
 	console.log ("text",text);
 	return text;
@@ -13,12 +16,12 @@ function getText(){
 
 textbox.addEventListener("keyup", function(event){
 	if (event.key==="Enter"){
-		text = getText();
+		text = webpage.getText();
 		console.log ("text",text);
 		if (text !== ""){
 			//messages.createMessage(text);
 			//take text value, add it to private array of message objects
-			createContainerDiv(text);
+			webpage.createContainerDiv(text);
 			// output to DOM with delete button
 
 		}else{alert("Please type your message in the text box and press enter.");}
@@ -26,8 +29,7 @@ textbox.addEventListener("keyup", function(event){
 
 })
 
-function createContainerDiv(userText)
-{
+webpage.createContainerDiv = function (userText) {
 	let msgWrapper = document.createElement('div');
 	wrapperDiv.appendChild(msgWrapper);
 	let msgText = document.createElement('p');
@@ -43,6 +45,13 @@ function createContainerDiv(userText)
 	})
 }
 
-createContainerDiv("hello how are you?");
-createContainerDiv("Bonjour! Ca va bein?");
-createContainerDiv("Just testing one more msg");
+//TODO - move to main.js
+// webpage.createContainerDiv("hello how are you?");
+// webpage.createContainerDiv("Bonjour! Ca va bein?");
+// webpage.createContainerDiv("Just testing one more msg");
+
+
+window.Chatty = window.Chatty || {};
+Chatty.webpage = webpage;
+
+}
