@@ -34,7 +34,6 @@
 
 	messages.createMessage = function(message) {
 		message.id = messagesCounter;
-		// message.message = text;
 		messagesArray.push(message);
 		messagesCounter++;
 	}
