@@ -19,7 +19,7 @@ textbox.addEventListener("keyup", function(event){
 		text = webpage.getText();
 		console.log ("text",text);
 		if (text !== ""){
-			//messages.createMessage(text);
+			Chatty.messages.createMessage(text);
 			//take text value, add it to private array of message objects
 			webpage.createContainerDiv(text);
 			// output to DOM with delete button
