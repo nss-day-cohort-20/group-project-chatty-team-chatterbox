@@ -6,6 +6,8 @@
 //event listener for text box
 let textbox = document.getElementById("messageInput");
 let wrapperDiv = document.getElementById("chatWrapper");
+let clearAllBtn = document.getElementById("clearButton");
+
 let text = null;
 
 webpage.getText = function (){
@@ -14,11 +16,24 @@ webpage.getText = function (){
 	return text;
 }
 
+webpage.clearFromDOM = function(){
+	while(wrapperDiv.hasChildNodes()){
+
+			wrapperDiv.removeChild(wrapperDiv.lastChild);
+	}
+}
+
+clearAllBtn.addEventListener("click", function(){
+
+	webpage.clearFromDOM();
+
+})
+
 textbox.addEventListener("keyup", function(event){
 	if (event.key==="Enter"){
 		let messageObject = {};
 		messageObject.message = webpage.getText();
-		console.log ("text",messageObject);
+		console.log ("text", messageObject);
 		if (text !== ""){
 			Chatty.messages.createMessage(messageObject);
 			//take text value, add it to private array of message objects
