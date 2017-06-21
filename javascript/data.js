@@ -33,6 +33,7 @@
 
 	messages.createMessage = function(message) {
 		messagesArray.push(message);
+		Chatty.webpage.createContainerDiv(message); //puts the default 5 messages on DOM on load.
 	}
 
 	messages.getAllMessages = function() {
