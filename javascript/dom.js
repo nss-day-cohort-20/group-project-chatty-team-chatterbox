@@ -24,8 +24,13 @@ textbox.addEventListener("keyup", function(event){
 			//take text value, add it to private array of message objects
 			webpage.createContainerDiv(messageObject.message);
 			// output to DOM with delete button
+			// webpage.messages.createMessage(text);
 
-		}else{alert("Please type your message in the text box and press enter.");}
+		}else{
+			alert("Please type your message in the text box and press enter.");
+		}
+		console.log(Chatty.messages.getAllMessages());
+		document.getElementById('messageInput').value = "";
 	}
 
 })
