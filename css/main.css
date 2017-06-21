@@ -1,20 +1,81 @@
-.theme
-{
+.theme {
 	background-color: black;
 	color: green;
 }
 
-.largeText
-{
+body {
+	margin: 0;
+}
+
+div {
+	border: 1px solid grey;
+	padding: .25em;
+	margin-bottom: .25em;
+	border-radius: 5px;
+}
+
+div p,
+div button {
+	display: inline-block;
+}
+
+div button {
+	float: right;
+	margin: 1em .5em 1em 0 ;
+}
+
+#pageWrapper {
+	height: 98vh;
+	white-space: nowrap;
+	margin: 0;
+}
+
+#header {
+	height: 10vh;
+	overflow: hidden;
+}
+
+#header input {
+	width: 50%;
+}
+
+#imageWrapper {
+	overflow: auto;
+	display: inline-block;
+}
+
+#imageWrapper img {
+	height: 30px;
+	float: left;
+	margin-right: 5px;
+
+}
+
+.isHidden {
+	display:none;
+}
+
+	/*display: inline-block;
+}
+*/
+#checkboxDiv {
+	height: 5vh;
+}
+
+#chatWrapper {
+	overflow: scroll;
+	height: 75vh;
+}
+
+.largeText {
 	font-size: 1.3em;
 }
 
-.buttonText
-{
+.buttonText {
 	font-size: 1.3em;
 }
-
 .ishidden
 {
 	display: none;
 }
+
