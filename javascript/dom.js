@@ -26,3 +26,4 @@ function createContainerDiv(userText)
 createContainerDiv("hello how are you?");
 createContainerDiv("Bonjour! Ca va bein?");
 createContainerDiv("Just testing one more msg");
+

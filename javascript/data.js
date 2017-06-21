@@ -1,5 +1,6 @@
 {
 	let messagesArray = [];
+	let messagesCounter = 1;
 
 	let messages = {}; // or Object.create(null);
 
@@ -32,7 +33,9 @@
 	}
 
 	messages.createMessage = function(message) {
+		message.id = messagesCounter;
 		messagesArray.push(message);
+		messagesCounter++;
 	}
 
 	messages.getAllMessages = function() {
