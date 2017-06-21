@@ -63,6 +63,16 @@
 			messagesArray.splice(messageIndex, 1);
 	}
 
+	messages.editMessage = function(divId, editedText) {
+		for(i=0; i<messagesArray.length;i++)
+			{
+				if(divId === messagesArray[i].id)
+					{
+						var messageIndex = messagesArray.indexOf(messagesArray[i]);
+					}
+			}
+			messagesArray[messageIndex].message = editedText;
+	}
 	window.Chatty = window.Chatty || {};
 	Chatty.messages = messages;
 }
