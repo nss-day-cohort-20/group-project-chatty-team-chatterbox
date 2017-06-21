@@ -6,29 +6,36 @@
 
 	messages.loadStarterJSON = function() {
 
-		let messageRequest = new XMLHttpRequest();
+		let messageFilesArray = ['message-1.json','message-2.json','message-3.json','message-4.json','message-5.json'];
 
-		function messageXHRErrorHandler() {
-			console.log("An error occured while transfering data");
+		for (var i = 0; i < messageFilesArray.length ; i++) {
+			let messageRequest = new XMLHttpRequest();
+
+			function messageXHRErrorHandler() {
+				console.log("An error occured while transfering data");
+			}
+
+			function messageXHRLoadHandler() {
+				// console.log("event.target", event.target);
+				let data = JSON.parse(event.target.responseText);
+				console.log("data", data);
+				// put data in private message array here
+				Chatty.messages.createMessage(data);
+				// OLD forEach loop to load data froms single file
+				// data.messages.forEach(function(message) {
+				// 	Chatty.messages.createMessage(message);
+				// });
+			}
+
+			messageRequest.addEventListener("load", messageXHRLoadHandler);
+			messageRequest.addEventListener("error", messageXHRErrorHandler);
+
+			messageRequest.open("GET", `data/${messageFilesArray[i]}`);
+
+			messageRequest.send();
+
+
 		}
-
-		function messageXHRLoadHandler() {
-			// console.log("event.target", event.target);
-			let data = JSON.parse(event.target.responseText);
-			// console.log("data", data);
-
-			// put data in private message array here
-			data.messages.forEach(function(message) {
-				Chatty.messages.createMessage(message);
-			});
-		}
-
-		messageRequest.addEventListener("load", messageXHRLoadHandler);
-		messageRequest.addEventListener("error", messageXHRErrorHandler);
-
-		messageRequest.open("GET", "data/messages.json");
-
-		messageRequest.send();
 
 	}
 
