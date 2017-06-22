@@ -99,3 +99,7 @@ div button {
 	display: none;
 }
 
+.theme #chatWrapper > div {
+	background-color: darkgrey;
+}
+
