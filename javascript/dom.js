@@ -86,6 +86,7 @@ webpage.createContainerDiv = function (userText, counter) {
 	//add event listener to edit button
 	editMsgBtn.addEventListener('click', function()
 	{
+		editMsgBtn.disabled = true;
 		let temp = msgText.innerHTML;
 		msgText.classList.toggle('isHidden');
 		let editArea = document.createElement('input');
@@ -97,6 +98,7 @@ webpage.createContainerDiv = function (userText, counter) {
 		{
 			if(event.keyCode === 13)
 			{
+				editMsgBtn.disabled = false;
 				msgText.classList.toggle('isHidden');
 				msgText.innerHTML = editArea.value;
 				Chatty.messages.editMessage(counter, editArea.value);
