@@ -74,7 +74,7 @@ webpage.createContainerDiv = function (userText, counter) {
 		console.log("counter", counter)
 		Chatty.messages.deleteMessage(counter);
 	})
-	//create edit button, append to msgWrapper
+	//create "Edit" button, append to msgWrapper
 	let editMsgBtn = document.createElement('button');
 	editMsgBtn.setAttribute("class", 'editMsgBtn');
 	editMsgBtn.innerHTML = "Edit";
