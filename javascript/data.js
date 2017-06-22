@@ -35,6 +35,7 @@
 	{
 		message.id = messagesCounter;
 		// let temp = Date.prototype.getDate();
+		message.name = activeUser;
 		message.timeStamp = new Date().toUTCString()
 		messagesArray.push(message);
 		messagesCounter++;
