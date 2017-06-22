@@ -1,7 +1,6 @@
 {
 
-	let webpage = {}
-
+let webpage = {}
 
 //event listener for text box
 let textbox = document.getElementById("messageInput");
@@ -23,7 +22,6 @@ webpage.clearFromDOM = function(){
 	}
 }
 
-
 webpage.disabled = function(){
 
 	if (wrapperDiv.hasChildNodes() === false){clearAllBtn.setAttribute("disabled", true);
@@ -33,7 +31,6 @@ clearAllBtn.addEventListener("click", function(){
 
 	webpage.clearFromDOM();
 	webpage.disabled();
-
 
 })
 
@@ -47,12 +44,7 @@ textbox.addEventListener("keyup", function(event){
 
 			Chatty.messages.createMessage(messageObject);
 
-			//take text value, add it to private array of message objects
-			// webpage.createContainerDiv(messageObject.message);
-			// output to DOM with delete button
-			// webpage.messages.createMessage(text);
-
-		}else{
+		} else{
 			alert("Please type your message in the text box and press enter.");
 		}
 		console.log(Chatty.messages.getAllMessages());
@@ -102,14 +94,8 @@ webpage.createContainerDiv = function (userText, counter) {
 	})
 }
 
-
-//TODO - move to main.js
-// webpage.createContainerDiv("hello how are you?");
-// webpage.createContainerDiv("Bonjour! Ca va bein?");
-// webpage.createContainerDiv("Just testing one more msg");
-
-
 window.Chatty = window.Chatty || {};
 Chatty.webpage = webpage;
-
 }
+
+
