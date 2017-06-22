@@ -85,7 +85,7 @@ webpage.createContainerDiv = function (userText, counter) {
 	editMsgBtn.addEventListener('click', function()
 	{
 		let temp = msgText.innerHTML;
-		msgText.classList.toggle('ishidden');
+		msgText.classList.toggle('isHidden');
 		let editArea = document.createElement('input');
 		editArea.setAttribute("type", "text");
 		msgWrapper.insertBefore(editArea, deleteMsgBtn);
@@ -94,7 +94,7 @@ webpage.createContainerDiv = function (userText, counter) {
 		{
 			if(event.keyCode === 13)
 			{
-				msgText.classList.toggle('ishidden');
+				msgText.classList.toggle('isHidden');
 				msgText.innerHTML = editArea.value;
 				msgWrapper.removeChild(editArea);
 			}
