@@ -91,6 +91,7 @@ webpage.createContainerDiv = function (userText, counter) {
 		msgText.classList.toggle('isHidden');
 		let editArea = document.createElement('input');
 		editArea.setAttribute("type", "text");
+		editArea.setAttribute("class", "editArea");
 		msgWrapper.insertBefore(editArea, buttonWrapper);
 		editArea.value = temp;
 		editArea.focus();
