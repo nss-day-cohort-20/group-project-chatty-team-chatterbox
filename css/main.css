@@ -60,12 +60,26 @@ div button {
 	height: 5vh;
 }
 
+#submain
+{
+	display: inline-flex;
+	width: 100%;
+	margin-top: 10px;
+}
+#userWrapper {
+	width: 17%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
 #chatWrapper {
 	overflow: scroll;
 	height: 81vh;
 	background-color: lightgrey;
 	border: none;
 	padding: .25em;
+	width: 80%;
+	float: right;
 }
 
 #chatWrapper > div {
@@ -98,7 +112,6 @@ div button {
 	display: none;
 }
 
-.editArea
-{
+.editArea {
 	width: 50%;
 }
