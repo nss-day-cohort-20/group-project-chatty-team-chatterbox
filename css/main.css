@@ -71,7 +71,7 @@ div button {
 	width: 100%;
 	margin-top: 10px;
 }
-#userWrapper {
+#userList {
 	width: 17%;
 	margin: 0 auto;
 	overflow: hidden;
@@ -94,7 +94,7 @@ div button {
 	max-width: 100%;
 	display: flex;
 	justify-content: space-between;
-	align-items: stretch;
+	align-items: center;
 	padding: .25em;
 	margin-bottom: .25em;
 	border-radius: 5px;
@@ -104,6 +104,10 @@ div button {
 	flex-grow: 1;
 }
 
+.boldUser
+{
+	font-weight: 900;
+}
 /*wrapper for buttons in messages - aligns to right*/
 .buttonWrapper {
 	display: inline-flex;

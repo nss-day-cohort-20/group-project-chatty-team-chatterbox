@@ -35,27 +35,25 @@ clearAllBtn.addEventListener("click", function(){
 })
 
 textbox.addEventListener("keyup", function(event){
-	if (event.key==="Enter"){
+	if (event.key==="Enter")
+		{
 		let messageObject = {};
 		messageObject.message = webpage.getText();
 			clearAllBtn.disabled= false;
-		console.log ("text", messageObject);
-		if (text !== ""){
-			let users = document.getElementById('userList');
-			let userRadios = users.getElementsByTagName('input');
-			for(let i=0; i<userRadios.length; i++)
-			{
-				if(userRadios[i].checked)
-				{
-					var activeUser = userRadios[i].value;
-				}
+		if (text !== "")
+		{
+			let activeUser = document.querySelector('input[name="users"]:checked');
+			if(activeUser === undefined || activeUser === null) {
+				alert("select a user");
 			}
-			Chatty.messages.createMessage(messageObject, activeUser);
-
-		} else{
-			alert("Please type your message in the text box and press enter.");
+			else {
+				Chatty.messages.createMessage(messageObject, activeUser.value);
+			}
 		}
-		console.log(Chatty.messages.getAllMessages());
+		else
+		{
+			alert('Sorry! You cannot send a blank chat');
+		}
 		document.getElementById('messageInput').value = "";
 	}
 
@@ -68,8 +66,12 @@ webpage.createContainerDiv = function (userText, counter, activeUser) {
 	wrapperDiv.appendChild(msgWrapper);
 	//create p element from text input, append to msgWrapper
 	let msgText = document.createElement('p');
+	let boldUser = document.createElement('span');
+	boldUser.setAttribute('class','boldUser');
+	boldUser.innerHTML = activeUser + ':&nbsp; ';
+	msgWrapper.appendChild(boldUser);
 	msgWrapper.appendChild(msgText);
-	msgText.innerHTML = activeUser + userText;
+	msgText.innerHTML = ` ${userText}`;
 	//create button wrapper for flexbox layout within messages written to DOM
 	let buttonWrapper = document.createElement('div');
 	buttonWrapper.setAttribute('class', 'buttonWrapper');

@@ -1,7 +1,7 @@
 {
 	let messagesArray = [];
 	let messagesCounter = 1;
-
+	let userArray = [];
 	let messages = {}; // or Object.create(null);
 
 	messages.loadStarterJSON = function() {
@@ -18,7 +18,7 @@
 				let data = JSON.parse(event.target.responseText);
 				console.log("data", data);
 				// put data in private message array here
-				Chatty.messages.createMessage(data);
+				Chatty.messages.createMessage(data, data.name);
 				// OLD forEach loop to load data froms single file
 				// data.messages.forEach(function(message) {
 				// 	Chatty.messages.createMessage(message);
@@ -69,6 +69,11 @@
 			}
 			messagesArray[messageIndex].message = editedText;
 	}
+
+	// messages.populateRadioButtons()
+	// {
+
+	// }
 	window.Chatty = window.Chatty || {};
 	Chatty.messages = messages;
 }
