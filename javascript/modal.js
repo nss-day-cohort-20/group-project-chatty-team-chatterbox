@@ -17,20 +17,22 @@ let pink =document.getElementById("pink");
 // 	console.log ("blue", blue.value);
 // })
 
-function getValue(){
-
+function handleSaveClick() {
+		console.log(event);
 		let blueClick= blue.value ;
 		console.log ("blueClick", blueClick);
 		return blueClick;
 	}
 
 
-document.getElementById("saveBtn").addEventListener("click", getValue){
+document.getElementById("saveBtn").addEventListener("click", handleSaveClick)
 
-	let blue=getValue();
+// {
 
-    if (blue.checked===true){
-     mainDiv.classList.toggle("blue");
-        console.log("You got it!")
-    }
-}
+// 	let blue=getValue();
+
+//     if (blue.checked===true){
+//      mainDiv.classList.toggle("blue");
+//         console.log("You got it!")
+//     }
+// }
