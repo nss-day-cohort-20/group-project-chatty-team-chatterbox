@@ -33,6 +33,7 @@ div button {
 	flex-grow: 1;
 	padding: .25em;
 	margin: auto .25em;
+	background-color: #FF5F5C;
 }
 
 #imageWrapper {
