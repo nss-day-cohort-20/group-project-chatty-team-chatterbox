@@ -9,6 +9,45 @@ let clearAllBtn = document.getElementById("clearButton");
 
 let text = null;
 
+let deleteMsgBtnHandler = function(msgWrapper, counter)
+	{
+		wrapperDiv.removeChild(msgWrapper);
+		// console.log("counter", counter)
+		Chatty.messages.deleteMessage(counter);
+	}
+
+let editAreaHandler = function(editMsgBtn, msgText, editArea, counter, msgWrapper)
+		{
+			if(event.keyCode === 13)
+			{
+				//save the edited text back to array and DOM.
+				editMsgBtn.disabled = false;
+				msgText.classList.toggle('isHidden');
+				msgText.innerHTML = editArea.value;
+				Chatty.messages.editMessage(counter, editArea.value);
+				msgWrapper.removeChild(editArea);
+			}
+		}
+
+let editMsgBtnHandler = function(editMsgBtn, msgText, msgWrapper, buttonWrapper, counter)
+	{
+		//begin editing.
+		editMsgBtn.disabled = true;
+		let temp = msgText.innerHTML;
+		msgText.classList.toggle('isHidden');
+		let editArea = document.createElement('input');
+		editArea.setAttribute("type", "text");
+		editArea.setAttribute("class", "editArea");
+		msgWrapper.insertBefore(editArea, buttonWrapper);
+		editArea.value = temp;
+		editArea.focus();
+		editArea.addEventListener('keyup', function() {
+			editAreaHandler(editMsgBtn, msgText, editArea, counter, msgWrapper);
+		})
+	}
+
+
+
 webpage.getText = function (){
 	text = textbox.value;
 	console.log ("text",text);
@@ -91,11 +130,8 @@ webpage.createContainerDiv = function (userText, counter, time, activeUser) {
 	deleteMsgBtn.innerHTML = "Delete";
 	buttonWrapper.appendChild(deleteMsgBtn);
 	//attach listener to delete button
-	deleteMsgBtn.addEventListener('click', function()
-	{
-		wrapperDiv.removeChild(msgWrapper);
-		console.log("counter", counter)
-		Chatty.messages.deleteMessage(counter);
+	deleteMsgBtn.addEventListener('click', function() {
+		deleteMsgBtnHandler(msgWrapper, counter);
 	})
 	//create "Edit" button, append to buttonWrapper
 	let editMsgBtn = document.createElement('button');
@@ -103,31 +139,9 @@ webpage.createContainerDiv = function (userText, counter, time, activeUser) {
 	editMsgBtn.innerHTML = "Edit";
 	buttonWrapper.appendChild(editMsgBtn);
 	//add event listener to edit button
-	editMsgBtn.addEventListener('click', function()
-	{
-		//begin editing.
-		editMsgBtn.disabled = true;
-		let temp = msgText.innerHTML;
-		msgText.classList.toggle('isHidden');
-		let editArea = document.createElement('input');
-		editArea.setAttribute("type", "text");
-		editArea.setAttribute("class", "editArea");
-		msgWrapper.insertBefore(editArea, buttonWrapper);
-		editArea.value = temp;
-		editArea.focus();
-		editArea.addEventListener('keyup', function()
-		{
-			if(event.keyCode === 13)
-			{
-				//save the edited text back to array and DOM.
-				editMsgBtn.disabled = false;
-				msgText.classList.toggle('isHidden');
-				msgText.innerHTML = editArea.value;
-				Chatty.messages.editMessage(counter, editArea.value);
-				msgWrapper.removeChild(editArea);
-			}
-		})
-	})
+	editMsgBtn.addEventListener('click', function() {
+		editMsgBtnHandler(editMsgBtn, msgText, msgWrapper, buttonWrapper, counter);
+	});
 }
 
 window.Chatty = window.Chatty || {};
