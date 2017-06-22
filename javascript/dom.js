@@ -1,7 +1,6 @@
 {
 
-	let webpage = {}
-
+let webpage = {}
 
 //event listener for text box
 let textbox = document.getElementById("messageInput");
@@ -23,7 +22,6 @@ webpage.clearFromDOM = function(){
 	}
 }
 
-
 webpage.disabled = function(){
 
 	if (wrapperDiv.hasChildNodes() === false){clearAllBtn.setAttribute("disabled", true);
@@ -33,7 +31,6 @@ clearAllBtn.addEventListener("click", function(){
 
 	webpage.clearFromDOM();
 	webpage.disabled();
-
 
 })
 
@@ -47,12 +44,7 @@ textbox.addEventListener("keyup", function(event){
 
 			Chatty.messages.createMessage(messageObject);
 
-			//take text value, add it to private array of message objects
-			// webpage.createContainerDiv(messageObject.message);
-			// output to DOM with delete button
-			// webpage.messages.createMessage(text);
-
-		}else{
+		} else{
 			alert("Please type your message in the text box and press enter.");
 		}
 		console.log(Chatty.messages.getAllMessages());
@@ -62,40 +54,50 @@ textbox.addEventListener("keyup", function(event){
 })
 
 webpage.createContainerDiv = function (userText, counter) {
+	//create div for messages, append to chatWrapper/wrapperDiv
 	let msgWrapper = document.createElement('div');
 	msgWrapper.setAttribute('id', counter);
 	wrapperDiv.appendChild(msgWrapper);
+	//create p element from text input, append to msgWrapper
 	let msgText = document.createElement('p');
 	msgWrapper.appendChild(msgText);
 	msgText.innerHTML = userText;
+	//create button wrapper for flexbox layout within messages written to DOM
+	let buttonWrapper = document.createElement('div');
+	buttonWrapper.setAttribute('class', 'buttonWrapper');
+	msgWrapper.appendChild(buttonWrapper);
+	//create button element "Delete", append to buttonWrapper
 	let deleteMsgBtn = document.createElement('button');
 	deleteMsgBtn.setAttribute("class","deleteMsgBtn");
 	deleteMsgBtn.innerHTML = "Delete";
-	msgWrapper.appendChild(deleteMsgBtn);
+	buttonWrapper.appendChild(deleteMsgBtn);
+	//attach listener to delete button
 	deleteMsgBtn.addEventListener('click', function()
 	{
 		wrapperDiv.removeChild(msgWrapper);
 		console.log("counter", counter)
 		Chatty.messages.deleteMessage(counter);
 	})
+	//create "Edit" button, append to buttonWrapper
 	let editMsgBtn = document.createElement('button');
 	editMsgBtn.setAttribute("class", 'editMsgBtn');
 	editMsgBtn.innerHTML = "Edit";
-	msgWrapper.appendChild(editMsgBtn);
+	buttonWrapper.appendChild(editMsgBtn);
+	//add event listener to edit button
 	editMsgBtn.addEventListener('click', function()
 	{
 		let temp = msgText.innerHTML;
-		msgText.classList.toggle('ishidden');
+		msgText.classList.toggle('isHidden');
 		let editArea = document.createElement('input');
 		editArea.setAttribute("type", "text");
-		msgWrapper.insertBefore(editArea, deleteMsgBtn);
+		msgWrapper.insertBefore(editArea, buttonWrapper);
 		editArea.value = temp;
 		editArea.focus();
 		editArea.addEventListener('keyup', function()
 		{
 			if(event.keyCode === 13)
 			{
-				msgText.classList.toggle('ishidden');
+				msgText.classList.toggle('isHidden');
 				msgText.innerHTML = editArea.value;
 				Chatty.messages.editMessage(counter, editArea.value);
 				msgWrapper.removeChild(editArea);
@@ -104,14 +106,8 @@ webpage.createContainerDiv = function (userText, counter) {
 	})
 }
 
-
-//TODO - move to main.js
-// webpage.createContainerDiv("hello how are you?");
-// webpage.createContainerDiv("Bonjour! Ca va bein?");
-// webpage.createContainerDiv("Just testing one more msg");
-
-
 window.Chatty = window.Chatty || {};
 Chatty.webpage = webpage;
-
 }
+
+

@@ -7,7 +7,7 @@ body {
 	margin: 0;
 }
 
-div {
+#chatWrapper > div {
 	border: 1px solid grey;
 	padding: .25em;
 	margin-bottom: .25em;
@@ -19,24 +19,25 @@ div button {
 	display: inline-block;
 }
 
-div button {
+/*#chatWrapper button {
 	float: right;
-	margin: 1em .5em 1em 0 ;
-}
+	margin: 1em .5em 1em 0;
+}*/
 
 #pageWrapper {
-	height: 98vh;
-	white-space: nowrap;
+	height: 97vh;
 	margin: 0;
 }
 
 #header {
+	background-color: lightblue;
 	height: 10vh;
 	overflow: hidden;
 	width: 100%;
 	display: inline-flex;
 	justify-content: space-between;
 	align-items: center; 
+	padding: .25em;
 }
 
 #header input {
@@ -45,19 +46,14 @@ div button {
 }
 
 #imageWrapper {
-	overflow: auto;
 	display: inline-block;
+	min-width: 125px;
 }
 
 #imageWrapper img {
 	height: 30px;
 	float: left;
-	margin-right: 5px;
-
-}
-
-.isHidden {
-	display:none;
+	margin: 0 auto;
 }
 
 #checkboxDiv {
@@ -66,7 +62,28 @@ div button {
 
 #chatWrapper {
 	overflow: scroll;
-	height: 75vh;
+	height: 81vh;
+	background-color: lightgrey;
+	border: none;
+	padding: .25em;
+}
+
+#chatWrapper > div {
+	max-width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+#chatWrapper div p {
+	flex-grow: 1;
+}
+
+.buttonWrapper {
+	display: inline-flex;
+	justify-content: space-around;
+	align-items: flex-end;
+	margin: 0;
 }
 
 .largeText {
@@ -76,8 +93,8 @@ div button {
 .buttonText {
 	font-size: .8em;
 }
-.ishidden
-{
+
+.isHidden {
 	display: none;
 }
 
