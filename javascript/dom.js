@@ -60,6 +60,12 @@ textbox.addEventListener("keyup", function(event){
 })
 
 webpage.createContainerDiv = function (userText, counter, activeUser) {
+	//check if the chat message list on the page list is 20, if so remove first element before adding another
+	if (wrapperDiv.childElementCount >= 20) {
+		while (wrapperDiv.childElementCount >= 20) {
+			wrapperDiv.removeChild(wrapperDiv.firstChild);
+		}
+	}
 	//create div for messages, append to chatWrapper/wrapperDiv
 	let msgWrapper = document.createElement('div');
 	msgWrapper.setAttribute('id', counter);
