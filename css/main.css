@@ -34,8 +34,8 @@ div button {
 }
 
 #imageWrapper {
-/*	display: inline-block;
-*/	width: 15%;
+/*	display: inline-block;*/
+	width: 15%;
 	padding: .25em;
 	min-width: 80px;
 	max-width: 115px;
@@ -63,12 +63,27 @@ div button {
 	font-size: .7em;
 }
 
+
+#submain
+{
+	display: inline-flex;
+	width: 100%;
+	margin-top: 10px;
+}
+#userWrapper {
+	width: 17%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
 /*chatWrapper*/
 #chatWrapper {
 	overflow: scroll;
 	height: 81vh;
 	border: none;
 	padding: .25em;
+	width: 80%;
+	float: right;
 }
 
 /*messages*/
@@ -115,6 +130,10 @@ div button {
 .theme {
 	background-color: #06417D;
 	color: #6DAEDB;
+}
+
+.editArea {
+	width: 50%;
 }
 
 .theme #header {

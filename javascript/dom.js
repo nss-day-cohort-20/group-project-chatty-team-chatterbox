@@ -41,8 +41,16 @@ textbox.addEventListener("keyup", function(event){
 			clearAllBtn.disabled= false;
 		console.log ("text", messageObject);
 		if (text !== ""){
-
-			Chatty.messages.createMessage(messageObject);
+			let users = document.getElementById('userList');
+			let userRadios = users.getElementsByTagName('input');
+			for(let i=0; i<userRadios.length; i++)
+			{
+				if(userRadios[i].checked)
+				{
+					var activeUser = userRadios[i].value;
+				}
+			}
+			Chatty.messages.createMessage(messageObject, activeUser);
 
 		} else{
 			alert("Please type your message in the text box and press enter.");
@@ -53,7 +61,7 @@ textbox.addEventListener("keyup", function(event){
 
 })
 
-webpage.createContainerDiv = function (userText, counter) {
+webpage.createContainerDiv = function (userText, counter, activeUser) {
 	//create div for messages, append to chatWrapper/wrapperDiv
 	let msgWrapper = document.createElement('div');
 	msgWrapper.setAttribute('id', counter);
@@ -61,7 +69,7 @@ webpage.createContainerDiv = function (userText, counter) {
 	//create p element from text input, append to msgWrapper
 	let msgText = document.createElement('p');
 	msgWrapper.appendChild(msgText);
-	msgText.innerHTML = userText;
+	msgText.innerHTML = activeUser + userText;
 	//create button wrapper for flexbox layout within messages written to DOM
 	let buttonWrapper = document.createElement('div');
 	buttonWrapper.setAttribute('class', 'buttonWrapper');
@@ -86,16 +94,22 @@ webpage.createContainerDiv = function (userText, counter) {
 	//add event listener to edit button
 	editMsgBtn.addEventListener('click', function()
 	{
+		//begin editing.
+		editMsgBtn.disabled = true;
 		let temp = msgText.innerHTML;
 		msgText.classList.toggle('isHidden');
 		let editArea = document.createElement('input');
 		editArea.setAttribute("type", "text");
+		editArea.setAttribute("class", "editArea");
 		msgWrapper.insertBefore(editArea, buttonWrapper);
 		editArea.value = temp;
+		editArea.focus();
 		editArea.addEventListener('keyup', function()
 		{
 			if(event.keyCode === 13)
 			{
+				//save the edited text back to array and DOM.
+				editMsgBtn.disabled = false;
 				msgText.classList.toggle('isHidden');
 				msgText.innerHTML = editArea.value;
 				Chatty.messages.editMessage(counter, editArea.value);
