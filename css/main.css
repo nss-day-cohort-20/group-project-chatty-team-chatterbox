@@ -1,17 +1,11 @@
+body {
+	margin: 0;
+	background-color: lightgrey;
+}
+
 .theme {
 	background-color: black;
 	color: green;
-}
-
-body {
-	margin: 0;
-}
-
-#chatWrapper > div {
-	border: 1px solid grey;
-	padding: .25em;
-	margin-bottom: .25em;
-	border-radius: 5px;
 }
 
 div p,
@@ -25,7 +19,7 @@ div button {
 }
 
 #header {
-	background-color: lightblue;
+/*	background-color: lightblue;*/
 	height: 10vh;
 	overflow: hidden;
 	width: 100%;
@@ -66,7 +60,7 @@ div button {
 #chatWrapper {
 	overflow: scroll;
 	height: 81vh;
-	background-color: lightgrey;
+/*	background-color: lightgrey;*/
 	border: none;
 	padding: .25em;
 }
@@ -76,6 +70,10 @@ div button {
 	display: flex;
 	justify-content: space-between;
 	align-items: stretch;
+	border: 1px solid grey;
+	padding: .25em;
+	margin-bottom: .25em;
+	border-radius: 5px;
 }
 
 #chatWrapper div p {
