@@ -90,7 +90,7 @@ webpage.createContainerDiv = function (userText, counter) {
 		msgText.classList.toggle('isHidden');
 		let editArea = document.createElement('input');
 		editArea.setAttribute("type", "text");
-		buttonWrapper.insertBefore(editArea, deleteMsgBtn);
+		msgWrapper.insertBefore(editArea, buttonWrapper);
 		editArea.value = temp;
 		editArea.addEventListener('keyup', function()
 		{
@@ -98,7 +98,7 @@ webpage.createContainerDiv = function (userText, counter) {
 			{
 				msgText.classList.toggle('isHidden');
 				msgText.innerHTML = editArea.value;
-				buttonWrapper.removeChild(editArea);
+				msgWrapper.removeChild(editArea);
 			}
 		})
 	})
