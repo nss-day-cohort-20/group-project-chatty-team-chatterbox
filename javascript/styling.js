@@ -7,13 +7,13 @@ let buttons = document.getElementsByTagName('button');
 let logoWhite= document.getElementById("logoWhite");
 let logoBlack= document.getElementById("logoBlack");
 
-darkThemeCheckbox.addEventListener('change', function()
-{
-	mainDiv.classList.toggle('theme');
-	logoBlack.classList.toggle("isHidden");
-	logoWhite.classList.toggle("isHidden");
+// darkThemeCheckbox.addEventListener('change', function()
+// {
+// 	mainDiv.classList.toggle('theme');
+// 	logoBlack.classList.toggle("isHidden");
+// 	logoWhite.classList.toggle("isHidden");
 
-})
+// })
 
 largeTextCheckbox.addEventListener('change', function()
 {
