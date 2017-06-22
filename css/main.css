@@ -1,28 +1,27 @@
+/*general styling*/
 body {
 	margin: 0;
-	background-color: lightgrey;
-}
-
-.theme {
-	background-color: black;
-	color: green;
+	background-color: #FFF59A;
 }
 
 div p,
 div button {
 	display: inline-block;
 }
-
+/*page wrapper*/
 #pageWrapper {
-	height: 97vh;
-	margin: 0;
-}
-
-#header {
-/*	background-color: lightblue;*/
-	height: 10vh;
-	overflow: hidden;
+	height: 100vh;
 	width: 100%;
+	margin: 0 auto;
+}
+/*header*/
+#header {
+	background-color: #FF5F5C;
+/*	border-radius: 5px 5px 0 0;*/
+	height: 10vh;
+/*	overflow: hidden;*/
+	width: 100%;
+	margin: 0;
 	display: inline-flex;
 	justify-content: space-between;
 	align-items: center; 
@@ -36,8 +35,8 @@ div button {
 }
 
 #imageWrapper {
-	display: inline-block;
-	width: 15%;
+/*	display: inline-block;
+*/	width: 15%;
 	padding: .25em;
 	min-width: 80px;
 	max-width: 115px;
@@ -53,19 +52,31 @@ div button {
 	margin: auto .25em;
 }
 
+/*checkboxDiv*/
 #checkboxDiv {
+	background-color: #FFAB75;
 	height: 5vh;
+	width: 100%;
+	margin: 0;
+/*	border-radius: 0 0 5px 5px ; */
 }
 
+#checkboxDiv label {
+	font-size: .7em;
+}
+
+/*chatWrapper*/
 #chatWrapper {
 	overflow: scroll;
 	height: 81vh;
-/*	background-color: lightgrey;*/
+
 	border: none;
 	padding: .25em;
 }
 
+/*messages*/
 #chatWrapper > div {
+	background-color: #81ABD5;
 	max-width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -80,6 +91,8 @@ div button {
 	flex-grow: 1;
 }
 
+
+/*wrapper for buttons in messages - aligns to right*/
 .buttonWrapper {
 	display: inline-flex;
 	justify-content: space-around;
@@ -87,6 +100,7 @@ div button {
 	margin: 0;
 }
 
+/*large text option changes:*/
 .largeText {
 	font-size: 1.3em;
 }
@@ -94,10 +108,16 @@ div button {
 .buttonText {
 	font-size: .8em;
 }
-
+/*hide toggle for event handlers*/
 .isHidden {
 	display: none;
 }
+/*dark theme changes to colors:*/
+.theme {
+	background-color: black;
+	color: green;
+}
+
 
 .theme #chatWrapper > div {
 	background-color: darkgrey;
