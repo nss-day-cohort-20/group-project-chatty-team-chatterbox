@@ -1,84 +1,94 @@
-.theme {
-	background-color: black;
-	color: green;
-}
-
+/*general styling*/
 body {
 	margin: 0;
-}
-
-#chatWrapper > div {
-	border: 1px solid grey;
-	padding: .25em;
-	margin-bottom: .25em;
-	border-radius: 5px;
+	background-color: #FFF59A;
+	color: #011627;
 }
 
 div p,
 div button {
 	display: inline-block;
 }
-
-/*#chatWrapper button {
-	float: right;
-	margin: 1em .5em 1em 0;
-}*/
-
+/*page wrapper*/
 #pageWrapper {
-	height: 97vh;
-	margin: 0;
-}
-
-#header {
-	background-color: lightblue;
-	height: 10vh;
-	overflow: hidden;
+	height: 100vh;
 	width: 100%;
+	margin: 0 auto;
+}
+/*header*/
+#header {
+	background-color: #FF5F5C;
+	height: 10vh;
+	width: 100%;
+	margin: 0;
 	display: inline-flex;
 	justify-content: space-between;
 	align-items: center; 
-	padding: .25em;
 }
 
 #header input {
 	width: 50%;
 	flex-grow: 1;
+	padding: .25em;
+	margin: auto .25em;
 }
 
 #imageWrapper {
-	display: inline-block;
-	min-width: 125px;
+/*	display: inline-block;
+*/	width: 15%;
+	padding: .25em;
+	min-width: 80px;
+	max-width: 115px;
 }
 
 #imageWrapper img {
-	height: 30px;
-	float: left;
+	min-height: 25px;
 	margin: 0 auto;
 }
 
-#checkboxDiv {
-	height: 5vh;
+#header button {
+	padding: .25em;
+	margin: auto .25em;
 }
 
+/*checkboxDiv*/
+#checkboxDiv {
+	background-color: #FFAB75;
+	height: 5vh;
+	width: 100%;
+	margin: 0;
+}
+
+#checkboxDiv label {
+	font-size: .7em;
+}
+
+/*chatWrapper*/
 #chatWrapper {
 	overflow: scroll;
 	height: 81vh;
-	background-color: lightgrey;
 	border: none;
 	padding: .25em;
 }
 
+/*messages*/
 #chatWrapper > div {
+	background-color: #81ABD5;
+	border: 1px solid #011627;
 	max-width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: stretch;
+	padding: .25em;
+	margin-bottom: .25em;
+	border-radius: 5px;
 }
 
 #chatWrapper div p {
 	flex-grow: 1;
 }
 
+/*wrapper for buttons in messages - aligns to right*/
 .buttonWrapper {
 	display: inline-flex;
 	justify-content: space-around;
@@ -86,6 +96,13 @@ div button {
 	margin: 0;
 }
 
+/*hide toggle for event handlers*/
+.isHidden {
+	display: none;
+}
+
+/*THEME CHANGES*/
+/*large text option changes:*/
 .largeText {
 	font-size: 1.3em;
 }
@@ -94,7 +111,21 @@ div button {
 	font-size: .8em;
 }
 
-.isHidden {
-	display: none;
+/*dark theme changes to colors:*/
+.theme {
+	background-color: #06417D;
+	color: #6DAEDB;
 }
 
+.theme #header {
+	background-color: #173753;
+}
+
+.theme #checkboxDiv {
+	background-color: #173753;
+}
+
+.theme #chatWrapper > div {
+	background-color: #173753;
+	border: 1px solid #011627;
+}
