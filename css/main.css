@@ -18,9 +18,7 @@ div button {
 /*header*/
 #header {
 	background-color: #FF5F5C;
-/*	border-radius: 5px 5px 0 0;*/
 	height: 10vh;
-/*	overflow: hidden;*/
 	width: 100%;
 	margin: 0;
 	display: inline-flex;
@@ -59,7 +57,6 @@ div button {
 	height: 5vh;
 	width: 100%;
 	margin: 0;
-/*	border-radius: 0 0 5px 5px ; */
 }
 
 #checkboxDiv label {
@@ -70,7 +67,6 @@ div button {
 #chatWrapper {
 	overflow: scroll;
 	height: 81vh;
-
 	border: none;
 	padding: .25em;
 }
@@ -78,11 +74,11 @@ div button {
 /*messages*/
 #chatWrapper > div {
 	background-color: #81ABD5;
+	border: 1px solid #011627;
 	max-width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: stretch;
-	border: 1px solid #011627;
 	padding: .25em;
 	margin-bottom: .25em;
 	border-radius: 5px;
@@ -92,7 +88,6 @@ div button {
 	flex-grow: 1;
 }
 
-
 /*wrapper for buttons in messages - aligns to right*/
 .buttonWrapper {
 	display: inline-flex;
@@ -101,6 +96,12 @@ div button {
 	margin: 0;
 }
 
+/*hide toggle for event handlers*/
+.isHidden {
+	display: none;
+}
+
+/*THEME CHANGES*/
 /*large text option changes:*/
 .largeText {
 	font-size: 1.3em;
@@ -109,18 +110,22 @@ div button {
 .buttonText {
 	font-size: .8em;
 }
-/*hide toggle for event handlers*/
-.isHidden {
-	display: none;
-}
+
 /*dark theme changes to colors:*/
 .theme {
-	background-color: black;
-	color: green;
+	background-color: #06417D;
+	color: #6DAEDB;
 }
 
+.theme #header {
+	background-color: #173753;
+}
+
+.theme #checkboxDiv {
+	background-color: #173753;
+}
 
 .theme #chatWrapper > div {
-	background-color: darkgrey;
+	background-color: #173753;
+	border: 1px solid #011627;
 }
-
