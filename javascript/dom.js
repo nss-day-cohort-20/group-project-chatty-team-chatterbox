@@ -62,11 +62,15 @@ webpage.createContainerDiv = function (userText, counter) {
 	let msgText = document.createElement('p');
 	msgWrapper.appendChild(msgText);
 	msgText.innerHTML = userText;
+	//create button wrapper for flexbox layout within messages written to DOM
+	let buttonWrapper = document.createElement('div');
+	buttonWrapper.setAttribute('class', 'buttonWrapper');
+	msgWrapper.appendChild(buttonWrapper);
 	//create button element "Delete", append to msgWrapper
 	let deleteMsgBtn = document.createElement('button');
 	deleteMsgBtn.setAttribute("class","deleteMsgBtn");
 	deleteMsgBtn.innerHTML = "Delete";
-	msgWrapper.appendChild(deleteMsgBtn);
+	buttonWrapper.appendChild(deleteMsgBtn);
 	//attach listener to delete button
 	deleteMsgBtn.addEventListener('click', function()
 	{
@@ -78,7 +82,7 @@ webpage.createContainerDiv = function (userText, counter) {
 	let editMsgBtn = document.createElement('button');
 	editMsgBtn.setAttribute("class", 'editMsgBtn');
 	editMsgBtn.innerHTML = "Edit";
-	msgWrapper.appendChild(editMsgBtn);
+	buttonWrapper.appendChild(editMsgBtn);
 	//add event listener to edit button
 	editMsgBtn.addEventListener('click', function()
 	{
