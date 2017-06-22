@@ -101,6 +101,11 @@ div button {
 	border-radius: 5px;
 }
 
+date
+{
+	color: gray;
+	font-size: .75em;
+}
 #chatWrapper div p,
 #chatWrapper div span,
 #chatWrapper div input {

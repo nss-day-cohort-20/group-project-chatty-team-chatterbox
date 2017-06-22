@@ -59,7 +59,7 @@ textbox.addEventListener("keyup", function(event){
 
 })
 
-webpage.createContainerDiv = function (userText, counter, activeUser) {
+webpage.createContainerDiv = function (userText, counter, time, activeUser) {
 	//check if the chat message list on the page list is 20, if so remove first element before adding another
 	if (wrapperDiv.childElementCount >= 20) {
 		while (wrapperDiv.childElementCount >= 20) {
@@ -78,7 +78,10 @@ webpage.createContainerDiv = function (userText, counter, activeUser) {
 	msgWrapper.appendChild(boldUser);
 	msgWrapper.appendChild(msgText);
 	msgText.innerHTML = ` ${userText}`;
-	//create button wrapper for flexbox layout within messages written to DOM
+	let timeStamp = document.createElement('date');
+	timeStamp.innerHTML = time;
+	msgWrapper.appendChild(timeStamp);
+	// create button wrapper for flexbox layout within messages written to DOM
 	let buttonWrapper = document.createElement('div');
 	buttonWrapper.setAttribute('class', 'buttonWrapper');
 	msgWrapper.appendChild(buttonWrapper);
@@ -130,5 +133,3 @@ webpage.createContainerDiv = function (userText, counter, activeUser) {
 window.Chatty = window.Chatty || {};
 Chatty.webpage = webpage;
 }
-
-
