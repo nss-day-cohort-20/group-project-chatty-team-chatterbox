@@ -54,26 +54,32 @@ textbox.addEventListener("keyup", function(event){
 })
 
 webpage.createContainerDiv = function (userText, counter) {
+	//create div for messages, append to chatWrapper/wrapperDiv
 	let msgWrapper = document.createElement('div');
 	msgWrapper.setAttribute('id', counter);
 	wrapperDiv.appendChild(msgWrapper);
+	//create p element from text input, append to msgWrapper
 	let msgText = document.createElement('p');
 	msgWrapper.appendChild(msgText);
 	msgText.innerHTML = userText;
+	//create button element "Delete", append to msgWrapper
 	let deleteMsgBtn = document.createElement('button');
 	deleteMsgBtn.setAttribute("class","deleteMsgBtn");
 	deleteMsgBtn.innerHTML = "Delete";
 	msgWrapper.appendChild(deleteMsgBtn);
+	//attach listener to delete button
 	deleteMsgBtn.addEventListener('click', function()
 	{
 		wrapperDiv.removeChild(msgWrapper);
 		console.log("counter", counter)
 		Chatty.messages.deleteMessage(counter);
 	})
+	//create edit button, append to msgWrapper
 	let editMsgBtn = document.createElement('button');
 	editMsgBtn.setAttribute("class", 'editMsgBtn');
 	editMsgBtn.innerHTML = "Edit";
 	msgWrapper.appendChild(editMsgBtn);
+	//add event listener to edit button
 	editMsgBtn.addEventListener('click', function()
 	{
 		let temp = msgText.innerHTML;
