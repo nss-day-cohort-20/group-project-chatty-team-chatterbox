@@ -98,6 +98,7 @@ webpage.createContainerDiv = function (userText, counter) {
 			{
 				msgText.classList.toggle('isHidden');
 				msgText.innerHTML = editArea.value;
+				Chatty.messages.editMessage(counter, editArea.value);
 				msgWrapper.removeChild(editArea);
 			}
 		})
