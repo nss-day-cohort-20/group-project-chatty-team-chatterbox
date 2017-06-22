@@ -72,7 +72,7 @@ div button {
 	margin-top: 10px;
 }
 #userList {
-	width: 17%;
+/*	width: 17%;*/
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -84,7 +84,6 @@ div button {
 	border: none;
 	padding: .25em;
 	width: 80%;
-	float: right;
 }
 
 /*messages*/
