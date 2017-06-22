@@ -66,7 +66,7 @@ webpage.createContainerDiv = function (userText, counter) {
 	let buttonWrapper = document.createElement('div');
 	buttonWrapper.setAttribute('class', 'buttonWrapper');
 	msgWrapper.appendChild(buttonWrapper);
-	//create button element "Delete", append to msgWrapper
+	//create button element "Delete", append to buttonWrapper
 	let deleteMsgBtn = document.createElement('button');
 	deleteMsgBtn.setAttribute("class","deleteMsgBtn");
 	deleteMsgBtn.innerHTML = "Delete";
@@ -78,7 +78,7 @@ webpage.createContainerDiv = function (userText, counter) {
 		console.log("counter", counter)
 		Chatty.messages.deleteMessage(counter);
 	})
-	//create "Edit" button, append to msgWrapper
+	//create "Edit" button, append to buttonWrapper
 	let editMsgBtn = document.createElement('button');
 	editMsgBtn.setAttribute("class", 'editMsgBtn');
 	editMsgBtn.innerHTML = "Edit";
@@ -90,7 +90,7 @@ webpage.createContainerDiv = function (userText, counter) {
 		msgText.classList.toggle('isHidden');
 		let editArea = document.createElement('input');
 		editArea.setAttribute("type", "text");
-		msgWrapper.insertBefore(editArea, deleteMsgBtn);
+		buttonWrapper.insertBefore(editArea, deleteMsgBtn);
 		editArea.value = temp;
 		editArea.addEventListener('keyup', function()
 		{
@@ -98,7 +98,7 @@ webpage.createContainerDiv = function (userText, counter) {
 			{
 				msgText.classList.toggle('isHidden');
 				msgText.innerHTML = editArea.value;
-				msgWrapper.removeChild(editArea);
+				buttonWrapper.removeChild(editArea);
 			}
 		})
 	})
