@@ -81,7 +81,7 @@ textbox.addEventListener("keyup", function(event){
 			if(activeUser === undefined || activeUser === null) 
 			{
 				alert("select a user");
-			} else if (text == "")
+			} else if (text == "" || text == null)
 				{
 					alert('Sorry! You cannot send a blank chat');
 				} else {
