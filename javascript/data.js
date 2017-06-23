@@ -36,6 +36,7 @@
 		message.id = messagesCounter;
 		let currentTime = new Date();
 		message.timeStamp = `${currentTime.toLocaleTimeString()} ${currentTime.toLocaleDateString()}`;  // formats date to readable forms
+		message.name = activeUser;
 		messagesArray.push(message);
 		messagesCounter++;
 		Chatty.webpage.createContainerDiv(message.message, message.id, message.timeStamp, activeUser); //puts the default 5 messages on DOM on load.
