@@ -4,7 +4,7 @@
 	let userArray = [];
 	let messages = {}; // or Object.create(null);
 
-	messages.loadStarterJSON = function(messageFilesArray, createMessageCallBack, messageListWrapperElement) {
+	messages.loadStarterJSON = function(messageFilesArray, createMessageCallBack, messageListWrapperElement, createMessageElementCallback) {
 
 		// let messageFilesArray = ['message-1.json','message-2.json','message-3.json','message-4.json','message-5.json'];
 
@@ -18,7 +18,7 @@
 				let data = JSON.parse(event.target.responseText);
 				// console.log("data", data);
 				// put data in private message array here
-				createMessageCallBack(data, data.name, messageListWrapperElement);
+				createMessageCallBack(data, data.name, messageListWrapperElement, createMessageElementCallback);
 				// OLD forEach loop to load data froms single file
 				// data.messages.forEach(function(message) {
 				// 	Chatty.messages.createMessage(message);
@@ -31,7 +31,7 @@
 		}
 	}
 
-	messages.createMessage = function(message, activeUser, messageListWrapperElement)
+	messages.createMessage = function(message, activeUser, messageListWrapperElement, createMessageElementCallback)
 	{
 		message.id = messagesCounter;
 		// let temp = Date.prototype.getDate();
@@ -39,7 +39,7 @@
 		message.timeStamp = new Date().toUTCString()
 		messagesArray.push(message);
 		messagesCounter++;
-		Chatty.webpage.createContainerDiv(message.message, message.id, message.timeStamp, activeUser, messageListWrapperElement, messages.deleteMessage); //puts the default 5 messages on DOM on load.
+		createMessageElementCallback(message.message, message.id, message.timeStamp, activeUser, messageListWrapperElement, messages.deleteMessage, messages.editMessage); //puts the default 5 messages on DOM on load.
 	}
 
 	// messages.convertToHoursAndMin(milliseconds)

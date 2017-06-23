@@ -13,7 +13,7 @@ let deleteMsgBtnHandler = function(msgWrapper, counter, messageListWrapperElemen
 		deleteMessageCallback(counter);
 	}
 
-let editAreaHandler = function(editMsgBtn, msgText, editArea, counter, msgWrapper)
+let editAreaHandler = function(editMsgBtn, msgText, editArea, counter, msgWrapper, editMessageCallback)
 		{
 			if(event.keyCode === 13)
 			{
@@ -21,12 +21,12 @@ let editAreaHandler = function(editMsgBtn, msgText, editArea, counter, msgWrappe
 				editMsgBtn.disabled = false;
 				msgText.classList.toggle('isHidden');
 				msgText.innerHTML = editArea.value;
-				Chatty.messages.editMessage(counter, editArea.value);
+				editMessageCallback(counter, editArea.value);
 				msgWrapper.removeChild(editArea);
 			}
 		}
 
-let editMsgBtnHandler = function(editMsgBtn, msgText, msgWrapper, buttonWrapper, counter)
+let editMsgBtnHandler = function(editMsgBtn, msgText, msgWrapper, buttonWrapper, counter, editMessageCallback)
 	{
 		//begin editing.
 		editMsgBtn.disabled = true;
@@ -39,7 +39,7 @@ let editMsgBtnHandler = function(editMsgBtn, msgText, msgWrapper, buttonWrapper,
 		editArea.value = temp;
 		editArea.focus();
 		editArea.addEventListener('keyup', function() {
-			editAreaHandler(editMsgBtn, msgText, editArea, counter, msgWrapper);
+			editAreaHandler(editMsgBtn, msgText, editArea, counter, msgWrapper, editMessageCallback);
 		})
 	}
 
@@ -69,7 +69,7 @@ webpage.disabled = function(clearButtonElement, messageListWrapperElement) {
 
 
 
-webpage.createContainerDiv = function (userText, counter, time, activeUser, messageListWrapperElement, deleteMessageCallback) {
+webpage.createContainerDiv = function (userText, counter, time, activeUser, messageListWrapperElement, deleteMessageCallback, editMessageCallback) {
 	//check if the chat message list on the page list is 20, if so remove first element before adding another
 	if (messageListWrapperElement.childElementCount >= 20) {
 		while (messageListWrapperElement.childElementCount >= 20) {
@@ -111,7 +111,7 @@ webpage.createContainerDiv = function (userText, counter, time, activeUser, mess
 	buttonWrapper.appendChild(editMsgBtn);
 	//add event listener to edit button
 	editMsgBtn.addEventListener('click', function() {
-		editMsgBtnHandler(editMsgBtn, msgText, msgWrapper, buttonWrapper, counter);
+		editMsgBtnHandler(editMsgBtn, msgText, msgWrapper, buttonWrapper, counter, editMessageCallback);
 	});
 }
 
