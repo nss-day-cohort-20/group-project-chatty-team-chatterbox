@@ -74,29 +74,25 @@ clearAllBtn.addEventListener("click", function(){
 })
 
 textbox.addEventListener("keyup", function(event){
-	if (event.key==="Enter")
-		{
-		let messageObject = {};
-		messageObject.message = webpage.getText();
-			clearAllBtn.disabled= false;
-		if (text !== "")
+	if (event.key==="Enter") 
 		{
 			let activeUser = document.querySelector('input[name="users"]:checked');
-			if(activeUser === undefined || activeUser === null) {
+			text = webpage.getText();
+			if(activeUser === undefined || activeUser === null) 
+			{
 				alert("select a user");
+			} else if (text === "" || text === null)
+				{
+					alert('Sorry! You cannot send a blank chat');
+				} else {
+					let messageObject = {};
+					messageObject.message = text;
+					clearAllBtn.disabled= false;
+					let activeUser = document.querySelector('input[name="users"]:checked');
+					Chatty.messages.createMessage(messageObject, activeUser.value);
+					document.getElementById('messageInput').value = "";
 			}
-			else {
-				Chatty.messages.createMessage(messageObject, activeUser.value);
-			}
-		}
-		else
-		{
-			alert('Sorry! You cannot send a blank chat');
-		}
-		document.getElementById('messageInput').value = "";
-	}
-
-})
+	}})
 
 webpage.createContainerDiv = function (userText, counter, time, activeUser) {
 	//check if the chat message list on the page list is 20, if so remove first element before adding another
