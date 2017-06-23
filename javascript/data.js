@@ -6,9 +6,9 @@
 
 	messages.loadStarterJSON = function() {
 
-		let messageFilesArray = ['message-1.json','message-2.json','message-3.json','message-4.json','message-5.json'];
+		// let messagesURL = 'https://nss-chatterbox-app.firebaseio.com/messages.json';
 
-		for (var i = 0; i < messageFilesArray.length ; i++) {
+		// for (var i = 0; i < messageFilesArray.length ; i++) {
 			let messageRequest = new XMLHttpRequest();
 			function messageXHRErrorHandler() {
 				console.log("An error occured while transfering data");
@@ -17,21 +17,19 @@
 			function messageXHRLoadHandler() {
 				let data = JSON.parse(event.target.responseText);
 				console.log("data", data);
-				// put data in private message array here
-				Chatty.messages.createMessage(data, data.name);
-				// OLD forEach loop to load data froms single file
-				// data.messages.forEach(function(message) {
-				// 	Chatty.messages.createMessage(message);
-				// });
+				data.forEach(function(message) {
+					Chatty.messages.createMessage(message, message.name);
+				});
+
 			}
 			messageRequest.addEventListener("load", messageXHRLoadHandler);
 			messageRequest.addEventListener("error", messageXHRErrorHandler);
-			messageRequest.open("GET", `data/${messageFilesArray[i]}`);
+			messageRequest.open("GET", 'https://nss-chatterbox-app.firebaseio.com/messages.json');
 			messageRequest.send();
-		}
+		// }
 	}
 
-	messages.createMessage = function(message, activeUser) 
+	messages.createMessage = function(message, activeUser)
 	{
 		message.id = messagesCounter;
 		let currentTime = new Date();
@@ -42,14 +40,14 @@
 		Chatty.webpage.createContainerDiv(message.message, message.id, message.timeStamp, activeUser); //puts the default 5 messages on DOM on load.
 	}
 
-	messages.getAllMessages = function() 
+	messages.getAllMessages = function()
 	{
 		return messagesArray;
 	}
 
 	//deletes message based on the index passed in
 	// TODO: need a better way to tie the delete event hander on the button to the message in the private Array
-	messages.deleteMessage = function(divId) 
+	messages.deleteMessage = function(divId)
 	{
 		for(i=0; i<messagesArray.length;i++)
 			{
@@ -61,7 +59,7 @@
 			messagesArray.splice(messageIndex, 1);
 	}
 
-	messages.editMessage = function(divId, editedText) 
+	messages.editMessage = function(divId, editedText)
 	{
 		for(i=0; i<messagesArray.length;i++)
 			{

@@ -1,12 +1,12 @@
 {"messages":[
 	{"message":"Hey, man, I'm hungary.",
-	"userName": "Arwa"},
+	"name": "Arwa"},
 	{"message":"Maybe u should czech the fridge.",
-	"userName": "Jon"},
+	"name": "Jon"},
 	{"message":"I'm russian to the kitchen.",
-	"userName": "Greta"},
+	"name": "Greta"},
 	{"message":"Maybe you'll find some turkey.",
-	"userName": "Joshua"},
+	"name": "Joshua"},
 	{"message":"We have some, but it's covered in a layer of greece.",
-	"userName": "Joe"}
+	"name": "Joe"}
 ]}
