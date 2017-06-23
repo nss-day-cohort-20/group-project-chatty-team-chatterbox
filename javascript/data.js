@@ -34,17 +34,13 @@
 	messages.createMessage = function(message, activeUser) 
 	{
 		message.id = messagesCounter;
-		// let temp = Date.prototype.getDate();
-		message.timeStamp = new Date().toUTCString()
+		let currentTime = new Date();
+		message.timeStamp = `${currentTime.toLocaleTimeString()} ${currentTime.toLocaleDateString()}`;  // formats date to readable forms
 		messagesArray.push(message);
 		messagesCounter++;
 		Chatty.webpage.createContainerDiv(message.message, message.id, message.timeStamp, activeUser); //puts the default 5 messages on DOM on load.
 	}
 
-	// messages.convertToHoursAndMin(milliseconds)
-	// {
-	// 	let seconds = milliseconds/1000
-	// }
 	messages.getAllMessages = function() 
 	{
 		return messagesArray;
