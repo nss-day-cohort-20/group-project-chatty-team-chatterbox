@@ -17,16 +17,10 @@
 			function messageXHRLoadHandler() {
 				let data = JSON.parse(event.target.responseText);
 				console.log("data", data);
-				// put data in private message array here
-				// Chatty.messages.createMessage(data, data.name);
-				// OLD forEach loop to load data froms single file
 				data.forEach(function(message) {
 					Chatty.messages.createMessage(message, message.name);
 				});
 
-				// for (var message in data.messages) {
-				// 	Chatty.messages.createMessage(message, message.name);
-				// }
 			}
 			messageRequest.addEventListener("load", messageXHRLoadHandler);
 			messageRequest.addEventListener("error", messageXHRErrorHandler);
