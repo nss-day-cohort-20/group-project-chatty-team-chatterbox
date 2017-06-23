@@ -77,16 +77,16 @@ textbox.addEventListener("keyup", function(event){
 	if (event.key==="Enter") 
 		{
 			let activeUser = document.querySelector('input[name="users"]:checked');
-			console.log('activeUser', activeUser);
+			text = webpage.getText();
 			if(activeUser === undefined || activeUser === null) 
 			{
 				alert("select a user");
-			} else if (text == "" || text == null)
+			} else if (text === "" || text === null)
 				{
 					alert('Sorry! You cannot send a blank chat');
 				} else {
 					let messageObject = {};
-					messageObject.message = webpage.getText();
+					messageObject.message = text;
 					clearAllBtn.disabled= false;
 					let activeUser = document.querySelector('input[name="users"]:checked');
 					Chatty.messages.createMessage(messageObject, activeUser.value);
